@@ -1,0 +1,12 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="shortcut icon"
+			href="http://webdesign.au.dk/design/2008/graphics/favicon.ico" />
+		<title><[TITLE]></title>
+	</head>
+	
+	<body style="min-width:0;background-color:white;">
+          <h1><[TITLE]></h1>
+          <[BODY]>
+	</body>
+</html>

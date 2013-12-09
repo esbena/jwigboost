@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="jwigboost" default="all" basedir=".">
+
+	<property name="project" value="jwigboost" />
+	<property name="version" value="1.0" />
+	<property name="release" value="1" />
+
+	<property name="optimize" value="on" />
+	<property name="debug" value="on" />
+
+	<path id="classpath">
+		<fileset dir="." includes="lib/**/*.jar" />
+		<fileset dir="." includes="build/**/*" />
+	</path>
+
+	<target name="all" depends="clean, jar, resources-zip, copy-to-known-dependants" />
+
+	<target name="compile">
+		<mkdir dir="build" />
+		<javac srcdir="src" includes="**" destdir="build" source="1.7" optimize="${optimize}" includeantruntime="false" debug="${debug}">
+			<classpath refid="classpath" />
+			<compilerarg line="-encoding UTF-8" compiler="modern" />
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<mkdir dir="dist" />
+		<jar jarfile="dist/${project}.jar" basedir="build" includes="**/*.class" />
+		<jar jarfile="dist/${project}-src.jar" basedir="src" includes="**/*.java,**/*.html,**/*.js" />
+	</target>
+
+	<target name="copy-to-known-dependants" depends="jar">
+		<copy todir="../courseadmin/lib">
+			<fileset dir="dist" includes="*.jar" />
+		</copy>
+		<copy todir="../studycontractadmin/lib">
+			<fileset dir="dist" includes="*.jar" />
+		</copy>
+		<copy todir="../usergroupadmin/lib">
+			<fileset dir="dist" includes="*.jar" />
+		</copy>
+		<copy todir="../EvaluationAdmin/lib">
+			<fileset dir="dist" includes="*.jar" />
+		</copy>
+		<copy todir="../rateme/lib">
+			<fileset dir="dist" includes="*.jar" />
+		</copy>
+
+	</target>
+
+
+	<target name="clean">
+		<delete dir="build" />
+		<delete dir="dist" />
+	</target>
+
+	<target name="resources-zip">
+		<mkdir dir="dist" />
+		<zip destfile="dist/jwigboost-resources.zip">
+			<fileset dir="images" includes="**/*.gif" />
+			<fileset dir="images" includes="**/*.css" />
+			<fileset dir="images" includes="**/*.js" />
+			<fileset dir="images" includes="**/*.swf" />
+			<fileset dir="images" includes="**/*.png" />
+			<fileset dir="images" includes="**/*.jpg" />
+			<fileset dir="images" includes="**/*.html" />
+			<fileset dir="jslibs" includes="**" />
+		</zip>
+	</target>
+</project>

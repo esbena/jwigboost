@@ -1,0 +1,38 @@
+/* Sorting */
+th.table-sortable {
+    cursor:pointer;
+    background-position:center left;
+    background-repeat:no-repeat;
+    padding-left:12px;
+}
+th.table-sorted-asc {
+    background-position:center left;
+    background-repeat:no-repeat;
+}
+th.table-sorted-desc {
+    background-position:center left;
+    background-repeat:no-repeat;
+}
+
+/* Sort Icon Styles */
+th.table-sortable { background-image:none; padding-left:16px; }
+th.table-sorted-asc { background-image:url("arrowup.png"); }
+th.table-sorted-desc { background-image:url("arrowdown.png"); }
+
+/* Icons box */
+.iconset {
+    margin:5px;
+    border:1px solid #cccccc;
+    border-color:#cccccc #666666 #666666 #cccccc;
+    text-align:center;
+    cursor:pointer;
+    width:100px;
+}
+.iconset img {
+    margin:3px;
+}
+input.filterField {
+    background: url(searchIcon.gif) no-repeat right;
+    width:100%;
+    border: dotted gray 1px;
+}
