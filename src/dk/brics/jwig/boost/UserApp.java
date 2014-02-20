@@ -195,10 +195,10 @@ public abstract class UserApp extends RootApp {
                              @RequiredParameter URL returnURL) {
         HibernateQuerier hq = new HibernateQuerier();
         Session session = hq.getSession();
-        Transaction transaction = hq.getOrBeginTransaction();
         IUser user = userQuerier.getUserByLogin(login);
         if (user != null) {
             if (userAuthenticator.authenticateUser(user, password)) {
+                Transaction transaction = hq.getOrBeginTransaction();
                 log.info("User " + user.getLogin() + " has logged in");
                 IUserAuthenticationToken userAuthenticationToken = tokenMaker
                         .make(user);
