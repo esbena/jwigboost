@@ -37,7 +37,8 @@ public abstract class InputTag implements ToXMLable {
             "placeholder=[__PLACEHOLDER__]" + //
             "size=[__SIZE__]" + //
             "disabled=[__DISABLED__]" + //
-            "id=[__ID__] />");
+            "id=[__ID__] " + //
+            "autofocus=[__AUTOFOCUS__] " + "/>");
     private static Set<String> rejectedAttributes;
     private static Set<String> acceptedAttributes;
 
@@ -137,6 +138,7 @@ public abstract class InputTag implements ToXMLable {
             acceptedAttributes.add("placeholder");
             acceptedAttributes.add("id");
             acceptedAttributes.add("disabled");
+            acceptedAttributes.add("autofocus");
         }
         return acceptedAttributes;
     }
